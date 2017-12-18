@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body onload="timer()">
 	<div class="container-fluid">	
 			<br>
 			<div class="row">
@@ -31,5 +31,32 @@
 		<img src="https://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg" style="width: 500px;height: 300px">
 		<h1>this is my div and changes its easy to work</h1>
 	</div>
+	<span id="hours">hours</span>
+	<span>:</span>
+	<span id="minutes">minutes</span>
+	<span>:</span>
+	<span id="seconds">seconds</span>
+
+<script type="text/javascript">
+	function timer(){
+		var x=setInterval(time,100)
+	}
+	function time(){
+		var time=new Date();
+		var hrs=time.getHours();
+		var min=time.getMinutes();
+		var sec=time.getSeconds();
+
+document.getElementById('hours').innerHTML=hrs;
+document.getElementById('minutes').innerHTML=min;
+
+document.getElementById('seconds').innerHTML=sec;
+
+
+	}
+
+
+
+</script>
 </body>
 </html>
