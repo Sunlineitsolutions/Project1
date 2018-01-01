@@ -5,10 +5,21 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
+	div#mydiv {
+    background: black;
+    width: 200px;
+    text-align: center;
+    color: red;
+    font-size: 20px;
+}
+</style>
 </head>
 <body onload="timer()">
 	<div class="container">
-		<marquee><h1 id="h11" style="background-color: gray">dileep kumar</h1></marquee>
+		<marquee><h1 id="h11" style="background-color: gray">dileep kumar</h1>
+		<h1 id="h11" style="background-color: gray; color: red;">Sunline IT Solutions</h1> 
+		</marquee>
 	</div>
 	<div class="container">
 		<div class="container-fluid">	
@@ -35,18 +46,57 @@
 	<div class="row">
 		<div class="row">
 			<p>dileep reddy</p>
-			<img src="https://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg" style="width: 500px;height: 300px">
+			<img src="https://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg" style="width: 500px;height: 300px;    border-radius: 90px;">
 			<h1>this is my div and changes its easy to work</h1>
 		</div>
-		<span id="hours">hours</span>
+	<div class="container">
+		<div id="mydiv">
+			<span id="hours">hours</span>
 		<span>:</span>
 		<span id="minutes">minutes</span>
 		<span>:</span>
 		<span id="seconds">seconds</span>
 	</div>
+			
+		</div>
+	</div>
 </div>
+<div class="container" ng-app="myApp">
+	<table class="table" ng-controller="myangular">
+		<thead>
+			<tr>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Tele phone</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+			</tr>
+			<tr ng-repeat="student in students">
+				<td>{{student.fname}}</td>
+				<td>{{student.lname}}</td>
+				<td>{{student.tel}}</td>
+				<td>{{student.address}}</td>
+				<td>{{student.city}}</td>
+				<td>{{student.state}}</td>
+				<td>{{student.zip}}</td>
+				
+			</tr>
+		</thead>
+		
+	</table>
+	
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
 
 <script type="text/javascript">
+	var myApp=angular.module("myApp",[])
+	myApp.controller("myangular",function($scope,$http){
+		$http.get("http://www.filltext.com/?rows=10&fname={firstName}&lname={lastName}&tel={phone|format}&address={streetAddress}&city={city}&state={usState|abbr}&zip={zip}&pretty=true").then(function(response){
+			$scope.students=response.data;
+		})
+	})
 	function timer(){
 		var x=setInterval(time,100)
 	}

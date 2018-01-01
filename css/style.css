@@ -2,3 +2,10 @@
 	width: 200px;
 	height: 250px;
 }
+div#mydiv {
+    background: black;
+    width: 200px;
+    text-align: center;
+    color: red;
+    font-size: 20px;
+}
